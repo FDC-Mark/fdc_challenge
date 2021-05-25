@@ -1,0 +1,55 @@
+//******************//
+//    Pig Latin     //
+//******************//
+
+<?php
+function doPigLatin($word) {
+  $suffix = "ay";
+  $result = "";
+  
+  if (!empty($word)) {
+      if (preg_match('/^[aeiou]/i', $word)) { //check vowels
+        $result = $word . $suffix;
+      } else {
+        $result = substr($word, 1) . substr($word, 0, 1) . $suffix;
+      }
+  }
+  
+  return $result;
+}
+
+echo doPigLatin("egg");
+//return eggay
+
+echo doPigLatin("banana");
+//return ananabay
+
+?>
+///////////////////////////////////////////////////////////////////////////
+
+//**************************//
+//   Fibonacci Sequence     //
+//**************************//
+<script>
+  function doFibonacciSeries(number) {
+        let n1 = 0, n2 = 1, nextNumber;
+        let result = [];
+        
+        if (Number.isInteger(number)) {
+            for (let i = 1; i <= number; i++) {
+            
+                result.push(n1);
+        
+                nextNumber = n1 + n2;
+                n1 = n2;
+                n2 = nextNumber;
+            }
+        }
+
+        return result.join(',');
+    }
+    
+    console.log(doFibonacciSeries(4));
+    //return 0,1,1,2
+    
+</script>
